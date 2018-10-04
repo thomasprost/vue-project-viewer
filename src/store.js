@@ -8,31 +8,27 @@ const state = {
   members: [{
     name: "Sato",
     position: data.positions.Director,
-    image: "./assets/images/members/sato.jpg",
+    
   },
   {
-    name: "Yoshida",
+    name: "Thomas",
     position: data.positions.Developer,
-    image: "./assets/images/members/yoshida.jpg",
+    
   },{
     name: "Noriko",
     position: data.positions.Director,
-    image: "./assets/images/members/noriko.jpg",
+    
   }],
   projects:[{
     name: "Jean Paul Hévin",
-    image: "./assets/images/projects/jph.jpg",
     priority: data.priorities.high,
-
   },
   {
     name: "Graf Lantz",
-    image: "./assets/images/projects/graf.jpg",
     priority: data.priorities.medium
   },
   {
     name: "Cmic",
-    image: "./assets/images/projects/cmic.jpg",
     priority: data.priorities.low
   }]
 }
