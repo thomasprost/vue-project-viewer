@@ -3,7 +3,7 @@
     Current projects: 
       <input type="text" placeholder="Valrhona" v-model="projectName" @keypress.enter="addProject" />
       {{ projectName }}
-      <ul>
+      <ul id="projects-list">
         <li 
           v-for="(project, index) in projects" 
           :key="index">
@@ -44,3 +44,16 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  #projects-list{
+    margin-top: 60px;
+    padding-left: 10px;
+
+    li{
+      text-align: left;
+      padding: 10px 0;
+      margin-bottom: 5px;
+    }
+  }
+</style>
