@@ -14,7 +14,10 @@ const state = {
 const getters = {
   members: state => state.members,
   membersInitials: state => state.membersInitials,
-  projects: state => state.projects
+  projects: state => state.projects,
+  orderedProjects: state => [...state.projects].sort((a,b) => {
+    return a.priority.id > b.priority.id
+  })
 }
 
 const mutations= {
@@ -29,10 +32,10 @@ const mutations= {
   ADD_MEMBER_INITIALS: (state, initials) => {
     state.membersInitials.push(initials)
   },
-  ADD_PROJECT: (state, name) => {
+  ADD_PROJECT: (state, project) => {
     state.projects.push({
-      name,
-      priority: priorities.low
+      name: project.name,
+      priority: project.priority
     })
   }
 }
@@ -48,8 +51,8 @@ const actions = {
     store.commit('ADD_MEMBER_INITIALS', initials)
   },
   // Projects
-  addProject: ({commit}, name) => {
-    commit('ADD_PROJECT', name)
+  addProject: (store, name) => {
+    store.commit('ADD_PROJECT', name)
   }
 }
 

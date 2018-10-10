@@ -73,5 +73,51 @@ li {
       background: #E6F4F1;
     }
   }
+
+  .row{
+    position: relative;
+  }
+
+  form{
+    margin: 20px 10px;
+    padding: 15px;
+    text-align: left;
+    border: 1px #3a539b solid;
+
+    .row{
+      width: 100%;
+      margin: 10px 0;
+    }
+
+    label {
+      display: block;
+    }
+
+    input, select, button {
+      min-height: 30px;
+      margin-top: 5px;
+      width: 100%;
+    }
+
+    input, select {
+      background: transparent;
+      color: #2c3e50;
+      border: 1px #3a539b solid;
+      padding-left: 10px; 
+    }
+
+    button {
+      background: transparent;
+      border: 1px #3a539b solid;
+      color: #3a539b;
+      cursor: pointer;
+      transition: all .1s ease;
+
+      &:hover{
+        background: #3a539b;
+        color: white;
+      }
+    }
+  }
 }
 

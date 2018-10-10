@@ -53,18 +53,19 @@ const membersSample = [
 const membersSampleInitials = membersSample.map(mem => mem.initials)
 
 const projectsSample = [
-{
-  name: "Jean Paul Hévin",
-  priority: priorities.high,
-},
-{
-  name: "Graf Lantz",
-  priority: priorities.medium
-},
-{
-  name: "Cmic",
-  priority: priorities.low
-}]
+  {
+    name: "Graf Lantz",
+    priority: priorities.medium
+  },
+  {
+    name: "Jean Paul Hévin",
+    priority: priorities.high,
+  },
+  {
+    name: "Cmic",
+    priority: priorities.low
+  }
+]
 
 // A list of soft colors I found on http://www.flatuicolorpicker.com 
 // Credits to them for it

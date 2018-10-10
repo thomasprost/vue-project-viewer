@@ -1,7 +1,5 @@
 <template>
   <div>
-    <!-- {{memberName}} -->
-    
     <form action="post" @submit.prevent="addMember">
       <div class="row">
         <label for="memberName">Name </label>
@@ -27,7 +25,6 @@
         v-for="(member, index) in members" 
         v-bind:key="index" 
         :style="{backgroundColor:member.color}"
-        
         >
         {{member.name}} - {{member.position.code}} - {{member.initials}}
 
@@ -81,47 +78,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  form{
-    margin: 20px 10px;
-    padding: 15px;
-    text-align: left;
-    border: 1px #3a539b solid;
-
-    .row{
-      width: 100%;
-      margin: 10px 0;
-    }
-
-    label {
-      display: block;
-    }
-
-    input, select, button {
-      min-height: 30px;
-      margin-top: 5px;
-      width: 100%;
-    }
-
-    input, select {
-      background: transparent;
-      color: #2c3e50;
-      border: 1px #3a539b solid;
-      padding-left: 10px; 
-    }
-
-    button {
-      background: transparent;
-      border: 1px #3a539b solid;
-      color: #3a539b;
-      cursor: pointer;
-      transition: all .1s ease;
-
-      &:hover{
-        background: #3a539b;
-        color: white;
-      }
-    }
-  }
+  
 
   #members-list{
     margin-top: 60px;
