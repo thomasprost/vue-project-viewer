@@ -13,6 +13,7 @@ function getRandomIntInclusive(min, max) {
 
 // Returns Initials of a name that are unique compared to the array of initials passed
 export function getInitials(name, allInitials){
+  // TODO: test the generated value against all Initials array and if found, generate new initials
   let result = ''
   // Verify that the name passed is a string
   if(typeof(name) === "string") {

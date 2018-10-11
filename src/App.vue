@@ -14,7 +14,7 @@
       <Members />
     </div>
     <div id="content">
-      
+      <CurrentProjects />
     </div>
     
     
@@ -25,12 +25,14 @@
 
 import Members from './components/Members.vue'
 import Projects from './components/Projects.vue'
+import CurrentProjects from './components/CurrentProjects.vue'
 
 export default {
   name: 'app',
   components: {
     Members,
-    Projects
+    Projects,
+    CurrentProjects
   }
 }
 </script>

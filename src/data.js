@@ -33,17 +33,20 @@ const positions = Object.freeze({
 
 const membersSample = [
 {
+  id: 1,
   name: "Sato",
   position: positions.Director,
   color: "#e26a6a",
   initials: "SA"
 },
 {
+  id: 2,
   name: "Thomas Prost",
   position: positions.Developer,
   color: "#81cfe0",
   initials: "TP"
 },{
+  id: 3,
   name: "Noriko",
   position: positions.Director,
   color: "#ffffcc",
@@ -54,18 +57,24 @@ const membersSampleInitials = membersSample.map(mem => mem.initials)
 
 const projectsSample = [
   {
+    id: 1,
     name: "Graf Lantz",
     priority: priorities.medium
   },
   {
+    id: 2,
     name: "Jean Paul Hévin",
     priority: priorities.high,
   },
   {
+    id:3,
     name: "Cmic",
     priority: priorities.low
   }
 ]
+
+const projectsIndex = 4
+const membersIndex = 4
 
 // A list of soft colors I found on http://www.flatuicolorpicker.com 
 // Credits to them for it
@@ -101,6 +110,8 @@ export {
   colors,
   colorsLength,
   membersSample,
+  membersIndex,
   membersSampleInitials, 
-  projectsSample
+  projectsSample,
+  projectsIndex
 }

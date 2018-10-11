@@ -1,0 +1,46 @@
+ 
+
+  #members-list{
+    margin-top: 60px;
+
+    li{
+      text-align: center;
+      padding: 10px 0;
+      margin-bottom: 5px;
+      transition: all .2s ease;
+      position: relative;
+      overflow: hidden;
+
+      .member-wrapper {
+        width: 100%;
+      }
+
+
+      .icons {
+        position: absolute;
+        top: 100%;
+        left: calc(50% + 20px);
+        transition: all .2s ease;
+        cursor: pointer;
+        
+        &.edit-icon {
+          transform: translateX(-50px)
+        }
+
+        img{
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      &:hover {
+        .member-wrapper{ 
+          opacity: .4;
+        }
+
+        .icons {
+          top: calc(50% - 10px);
+        }
+      }
+    }
+  }
