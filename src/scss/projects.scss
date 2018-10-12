@@ -1,0 +1,61 @@
+#projects-list{
+  margin-top: 60px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  li{
+    text-align: left;
+    padding: 10px 0;
+    margin-bottom: 5px;
+    position: relative;
+    border-bottom: 1px #3a539b solid;   
+    transition: all .2s ease;
+    overflow: hidden;
+
+    .project-wrapper {
+      width: 100%;
+    }
+
+
+    .icons {
+      position: absolute;
+      top: 100%;
+      left: calc(50% + 20px);
+      transition: all .2s ease;
+      cursor: pointer;
+      
+      &.edit-icon {
+        transform: translateX(-50px)
+      }
+
+      img{
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &:hover {
+      .project-wrapper{ 
+        opacity: .4;
+      }
+
+      .icons {
+        top: calc(50% - 10px);
+      }
+    }
+  }
+  
+}
+.priority-info{
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      right: 0;
+      top: 10px;
+      background-color: black;
+}
+.row {
+  .priority-info{
+    top: 0;
+  }
+}

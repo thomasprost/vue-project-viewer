@@ -18,7 +18,7 @@
         </select>
         
       </div>
-      <button type="submit">Add a project</button>
+      <button type="submit">{{buttonText}}</button>
 
     </form>
     
@@ -28,8 +28,26 @@
         <li 
           v-for="(project) in orderedProjects" 
           :key="project.id">
-          {{project.name}} 
-          <div class="priority-info" :style="{'backgroundColor': project.priority.color}"></div>
+          <div class="project-wrapper">
+            {{project.name}} 
+            <div class="priority-info" :style="{'backgroundColor': project.priority.color}"></div>
+          </div>
+          <div class="icons edit-icon">
+            <img 
+              :id="'editp-'+project.id" 
+              src="../assets/icons/pencil.png" 
+              alt="edit"
+              @click="setProjectForm"
+            >
+          </div>
+          <div class="icons close-icon">
+            <img 
+              :id="'delm-'+project.id" 
+              src="../assets/icons/X.png" 
+              alt="del"
+              @click="deleteProject"
+            >
+          </div>
         </li>
       </ul>
   </div>
@@ -49,7 +67,9 @@ export default {
     return {
       projectName: '',
       projectPriority: '',
-      priorities
+      projectId: 0,
+      priorities,
+      buttonText: "Add a project"
     }
   },
   computed: {
@@ -60,49 +80,54 @@ export default {
   },
   methods: {
     ...Vuex.mapActions({
-      addProjectStore: 'addProject'
+      addProjectStore: 'addProject',
+      deleteProjectStore: 'deleteProject'
     }),
     addProject() {
       if(this.projectName !== ""){
         this.addProjectStore({
           name: this.projectName,
-          priority: priorities[this.projectPriority]
+          priority: priorities[this.projectPriority],
+          id: this.projectId
         }),
         this.projectName = ''
+        this.projectPriority = ''
+        this.projectId = 0
+        this.buttonText = "Add a project"
+      }
+    },
+    setProjectForm (event) {
+      const targetId = event.target.id.split('-')[1]
+      
+      const id = parseInt(targetId) || 0
+      
+      // look for the project with the Id clicked
+      const currentProject = this.projects.find((pro) => pro.id === id)
+      
+      // If we find id, set the data variables in the form
+      if(currentProject){
+        this.projectName = currentProject.name
+        this.projectPriority = currentProject.priority.code
+        this.projectId = id
+        this.buttonText = `Edit ${this.projectName}`
       }
       
+    },
+    deleteProject (event) {
+      const targetId = event.target.id.split('-')[1]
+      
+      const id = parseInt(targetId) || 0
+      
+      // look for the project with the Id clicked
+      const currentProject = this.projects.find((pro) => pro.id === id)
+      
+      if(currentProject){
+        this.deleteProjectStore(currentProject)
+      }
     }
     
   }
 }
 </script>
 
-<style lang="scss" scoped>
-  #projects-list{
-    margin-top: 60px;
-    padding-left: 10px;
-    padding-right: 10px;
-
-    li{
-      text-align: left;
-      padding: 10px 0;
-      margin-bottom: 5px;
-      position: relative;
-      border-bottom: 1px #3a539b solid;      
-    }
-    
-  }
-  .priority-info{
-        width: 20px;
-        height: 20px;
-        position: absolute;
-        right: 0;
-        top: 10px;
-        background-color: black;
-  }
-  .row {
-    .priority-info{
-      top: 0;
-    }
-  }
-</style>
+<style lang="scss" scoped src="../scss/projects.scss"></style>

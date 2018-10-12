@@ -31,7 +31,7 @@
         </div>
         <div class="icons edit-icon">
           <img 
-            :id="'edit-'+member.id" 
+            :id="'editm-'+member.id" 
             src="../assets/icons/pencil.png" 
             alt="edit"
             @click="setMemberForm"
@@ -39,7 +39,7 @@
         </div>
         <div class="icons close-icon">
           <img 
-            :id="'del-'+member.id" 
+            :id="'delm-'+member.id" 
             src="../assets/icons/X.png" 
             alt="del"
             @click="deleteMember"
@@ -135,6 +135,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped src="../scss/members.scss">
- 
-</style>
+<style lang="scss" scoped src="../scss/members.scss"></style>

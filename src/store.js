@@ -54,11 +54,25 @@ const mutations= {
     state.members.splice(state.members.indexOf(member), 1)
   },
   ADD_PROJECT: (state, project) => {
-    state.projects.push({
-      id: state.projectsIndex++,
-      name: project.name,
-      priority: project.priority
-    })
+    if(project.id === 0){
+      state.projects.push({
+        id: state.projectsIndex++,
+        name: project.name,
+        priority: project.priority
+      })
+    }
+    else{
+      let currentProject = state.projects.find((pro) => pro.id === project.id)
+      if(currentProject !== undefined){
+        currentProject.name = project.name
+        currentProject.priority = project.priority
+        
+      }
+    }
+    
+  },
+  DELETE_PROJECT: (state, project) => {
+    state.projects.splice(state.projects.indexOf(project), 1)
   }
 }
 
@@ -78,6 +92,9 @@ const actions = {
   // Projects
   addProject: (store, name) => {
     store.commit('ADD_PROJECT', name)
+  },
+  deleteProject: (store, project) => {
+    store.commit('DELETE_PROJECT', project)
   }
 }
 
