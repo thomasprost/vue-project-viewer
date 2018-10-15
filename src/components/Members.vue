@@ -53,7 +53,7 @@
 
 <script>
 import Vue from 'vue'
-import store from '../store'
+import store from '../store/store'
 import Vuex from 'vuex'
 import {positions} from '../data.js'
 import {getInitials} from '../helpers.js'

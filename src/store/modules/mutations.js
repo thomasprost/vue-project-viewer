@@ -1,32 +1,6 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import * as data from './data.js'
-import {getRandomColor, getInitials} from './helpers.js'
+import {getRandomColor, getInitials} from '../../helpers.js'
 
-Vue.use(Vuex)
-
-const state = {
-  members: data.membersSample,
-  membersInitials: data.membersSampleInitials,
-  membersIndex: data.membersIndex,
-  projects: data.projectsSample,
-  projectsIndex: data.projectsIndex,
-  currentProjects: []
-}
-
-const getters = {
-  members: state => state.members,
-  membersInitials: state => state.membersInitials,
-  membersIndex: state => state.membersIndex,
-  projects: state => state.projects,
-  projectsIndex: state => state.projectsIndex,
-  orderedProjects: state => [...state.projects].sort((a,b) => {
-    return a.priority.id > b.priority.id
-  }),
-  currentProjects: state => state.currentProjects
-}
-
-const mutations= {
+export const mutations= {
   ADD_MEMBER: (state, member) => {
     if(member.id === 0){
       state.members.push({
@@ -73,36 +47,9 @@ const mutations= {
   },
   DELETE_PROJECT: (state, project) => {
     state.projects.splice(state.projects.indexOf(project), 1)
+  },
+  ADD_PROJECT_TO_WEEK: (state, project) => {
+    state.currentProject.push(project)
   }
+
 }
-
-
-
-const actions = {
-  // Members
-  addMember: (store, member) => {
-    store.commit('ADD_MEMBER', member)
-  },
-  addMemberInitials: (store, initials) => {
-    store.commit('ADD_MEMBER_INITIALS', initials)
-  },
-  deleteMember: (store, member) => {
-    store.commit('DELETE_MEMBER', member)
-  },
-  // Projects
-  addProject: (store, name) => {
-    store.commit('ADD_PROJECT', name)
-  },
-  deleteProject: (store, project) => {
-    store.commit('DELETE_PROJECT', project)
-  }
-}
-
-
-export default new Vuex.Store({
-  state,
-  mutations,
-  getters,
-  actions,
-  strict: true
-})

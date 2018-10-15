@@ -42,10 +42,18 @@
           </div>
           <div class="icons close-icon">
             <img 
-              :id="'delm-'+project.id" 
+              :id="'delp-'+project.id" 
               src="../assets/icons/X.png" 
               alt="del"
               @click="deleteProject"
+            >
+          </div>
+          <div class="icons week-icon">
+            <img 
+              :id="'weekp-'+project.id" 
+              src="../assets/icons/calendar.png" 
+              alt="add"
+              @click="addToWeek"
             >
           </div>
         </li>
@@ -57,7 +65,7 @@
 
 <script>
 import Vue from 'vue'
-import store from '../store'
+import store from '../store/store'
 import Vuex from 'vuex'
 import {priorities} from '../data.js'
 
